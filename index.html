@@ -24,17 +24,19 @@
         <form id="inputForm">
             <label for="tempInput">Syötä lämpötila:</label>
             <br>
-            <input type="number" name="tempInput" id="tempInput" required>
+            <input type="number" name="tempInput" id="tempInput" placeholder="0" autofocus required>
             <input type="submit" value="Muunna" id="tempConvert">
             <br>
-            <input type="radio" name="1des" id="1des">
+        </form>
+        <form id="desForm">
+            <input type="radio" name="des" id="1des" checked>
             <label for="1des">1 desimaali</label>
             <br>
-            <input type="radio" name="2des" id="2des">
-            <label for="2des">2 desimaali</label>
+            <input type="radio" name="des" id="2des">
+            <label for="2des">2 desimaalia</label>
             <br>
-            <input type="radio" name="3des" id="3des">
-            <label for="3des">3 desimaali</label>
+            <input type="radio" name="des" id="3des">
+            <label for="3des">3 desimaalia</label>
         </form>
         <p id="convertedTemp"></p>
     </main>
