@@ -11,26 +11,30 @@
         <h1>Lämpötilamuunnin</h1>
     </header>
     <main id="main">
-        <form id="form">
-            <p style="padding-bottom:2px; margin:0;">Muunnin tapa:</p>
-            <select name="tempChange" id="tempChange">  
-                <option value="choose" id="choose">Valitse</option>
-                <option value="celToFal" id="celToFal">Celcius -> Fahrenheit</option>
-                <option value="falToCel" id="falToCel">Fahrenheit -> Celcius</option>
+        <form id="selectForm">
+            <select name="tempConverter" id="tempConverter">  
+                <option value="celToFah" id="celToFah">Celcius -> Fahrenheit</option>
+                <option value="fahToCel" id="fahToCel">Fahrenheit -> Celcius</option>
+                <option value="fahToKel" id="fahToKel">Fahrenheit -> Kelvin</option>
+                <option value="kelToFah" id="kelToFah">Kelvin -> Fahrenheit</option>
+                <option value="kelToCel" id="kelToCel">Kelvin -> Celcius</option>
+                <option value="celToKel" id="celToKel">Celcius -> Kelvin</option>
             </select><br>
-            <label for="temp">Syötä lämpötila:</label>
+        </form>
+        <form id="inputForm">
+            <label for="tempInput">Syötä lämpötila:</label>
             <br>
-            <input type="number" name="temp" id="temp">
+            <input type="number" name="tempInput" id="tempInput" required>
             <input type="submit" value="Muunna" id="tempConvert">
             <br>
             <input type="radio" name="1des" id="1des">
             <label for="1des">1 desimaali</label>
             <br>
             <input type="radio" name="2des" id="2des">
-            <label for="2des">2 desimaalia</label>
+            <label for="2des">2 desimaali</label>
             <br>
             <input type="radio" name="3des" id="3des">
-            <label for="3des">3 desimaalia</label>
+            <label for="3des">3 desimaali</label>
         </form>
         <p id="convertedTemp"></p>
     </main>

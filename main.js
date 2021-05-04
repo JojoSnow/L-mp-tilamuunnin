@@ -1,41 +1,64 @@
-const converterBtn = document.querySelector('#tempConvert');
-const form = document.forms['form'];
-let temp = document.getElementById('temp').value;
-//let temp = parseInt(tempTemp).value;
-let select = document.querySelector('select');
-form.addEventListener('submit', clickBtn);
-select.addEventListener('change', chooseWhichTemp);
+const converterBtn = document.getElementById('tempConvert');
+const formInput = document.forms['inputForm'];
+
+formInput.addEventListener('submit', clickBtn);
 
 function clickBtn(event) {
     event.preventDefault();
-    console.log(temp);
-    
-    if(temp === "") {
-        alert('Lämpötila pitää syöttää!')
+    let temp = parseInt(document.getElementById('tempInput').value);
+    chooseWhichTemp(temp);
+}
+
+function chooseWhichTemp(temp){
+    let select = document.getElementById('tempConverter');
+    let option = select.options[select.selectedIndex].value;
+    console.log(option);
+    if(option === 'celToFah') {
+        celToFah(temp);
     }
-    if(select.value != document.querySelector('#choose').value) {
-        chooseWhichTemp();
-    } else {
-        console.log('convert failed');
-        alert('Valitse muunnin tapa!');
+    if(option === 'fahToCel') {
+        fahToCel(temp);
+    }
+    if(option === 'fahToKel') {
+        fahToKel(temp);
+    }
+    if(option === 'kelToFah') {
+        kelToFah(temp);
+    }
+    if(option === 'kelToCel') {
+        kelToCel(temp);
+    }
+    if(option === 'celToKel') {
+        celToKel(temp);
     }
 }
 
-function chooseWhichTemp(event){
-    if (select.value === 'celToFal') {
-        celToFah();
-    }
-    if (select.value === 'falToCel') {
-        fahToCel();
-    }
-}
-
-function celToFah() {
+function celToFah(temp) {
     let celToFah = temp * 1.8 + 32;
-    document.getElementById('convertedTemp').innerText = celToFah;
+    document.getElementById('convertedTemp').innerText = celToFah + ' °F';
 }
 
-function fahToCel() {
+function fahToCel(temp) {
     let fahToCel = (temp - 32) / 1.8;
-    document.getElementById('convertedTemp').innerText = fahToCel;
+    document.getElementById('convertedTemp').innerText = fahToCel + ' °C';
+}
+
+function fahToKel(temp) {
+    let fahToKel = (temp + 459.67) / 1.8;
+    document.getElementById('convertedTemp').innerText = fahToKel + ' K';
+}
+
+function kelToFah(temp) {
+    let kelToFah = temp * 1.8 - 459.67;
+    document.getElementById('convertedTemp').innerText = kelToFah + ' °F';
+}
+
+function kelToCel(temp) {
+    let kelToCel = temp - 273.15;
+    document.getElementById('convertedTemp').innerText = kelToCel + ' °C';
+}
+
+function celToKel(temp) {
+    let celToKel = temp + 273.15;
+    document.getElementById('convertedTemp').innerText = celToKel + ' K';
 }
